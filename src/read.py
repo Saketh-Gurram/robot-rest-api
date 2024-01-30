@@ -1,55 +1,39 @@
 #!/usr/bin/env python
+import time
+import json
 import argparse
-import rospy
-from actionlib_msgs.msg import GoalStatusArray
+import requests
 
-from flask import Flask
-from flask_restful import Resource, Api
-
-robot_status_data = {}
-robot_status_data["data_received"] = False
-
-def move_base_status_callback(data):
-    """Callback function for ROS topic /move_base/status"""
-    if data.status_list:
-        robot_status_data["status"] = data.status_list[0].status
-        robot_status_data["text"] = data.status_list[0].text
-        robot_status_data["data_received"] = True
-
-class RobotStatus(Resource):
-    """Handler for /api/robot/status endpoint"""
-    @staticmethod
-    def get():
-        """GET request handler"""
-        if robot_status_data["data_received"]:
-            robot_status_data["data_received"] = False
-            response = {
-                "status": robot_status_data["status"],
-                "text": robot_status_data["text"]
-            }, 200
-        else:
-            response = {"message": "Invalid status value"}, 400
-        return response
-
-
-rospy.init_node("ros_rest_server", disable_signals=True)
-rospy.Subscriber(
-    "/move_base/status", GoalStatusArray, move_base_status_callback
-)
-
-app = Flask("Robot Status REST Server")
-api = Api(app)
-api.add_resource(RobotStatus, "/api/robot/status")
 
 if __name__ == "__main__":
-    server_parser = argparse.ArgumentParser(description="Robot Status REST Server")
-    server_parser.add_argument(
-        "port", nargs="?", default="7201", type=int, help="Port number for the server"
+    client_parser = argparse.ArgumentParser(description="REST Client")
+    client_parser.add_argument(
+        "port_number", nargs="?", default="7201", type=int, help="port number"
     )
-    server_parser.add_argument(
-        "ip", nargs="?", default="127.0.0.1", help="IP address for the server"
+    client_parser.add_argument(
+        "ip_address",
+        nargs="?",
+        default="127.0.0.1",
+        help="ip_address for server",
     )
-    args = server_parser.parse_args(rospy.myargv()[1:])
-    port_number = args.port
-    ip_address = args.ip
-    app.run(ip_address, port=port_number)
+    margs = client_parser.parse_args()
+    port_number = margs.port_number
+    ip_address = margs.ip_address
+    url = "http://" + ip_address + ":" + str(port_number) + "/api/robot/status"
+    print("Requesting from " + url)
+    while True:
+        try:
+            response = requests.get(url)
+            response.raise_for_status()
+            print("Status: " + str(response.status_code))
+            print(json.dumps(response.json()))
+        except requests.exceptions.HTTPError as errh:
+            print("Status: " + str(response.status_code))
+            print(json.dumps(response.json()))
+        except requests.exceptions.ConnectionError as errc:
+            print('{"Message": "Connection Error"}')
+        except requests.exceptions.Timeout as errt:
+            print('{"Message": "Request Timeout"}')
+        except requests.exceptions.RequestException as err:
+            print('{"Message": "Request Exception"}')
+        time.sleep(1)
