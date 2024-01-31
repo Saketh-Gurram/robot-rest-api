@@ -16,12 +16,56 @@ We are using flask API for a lightweight web framework
 
 Install the prerequisites and packages before proceeding. This code has been run on Ubuntu 20.04 LTS ROS Noetic.
 
+## Installing Turtlebot3
+
+```bash
+sudo apt-get update
+sudo apt-get upgrade
+cd ~/catkin_ws/src/
+git clone https://github.com/ROBOTIS-GIT/turtlebot3_msgs.git -b noetic-devel
+git clone https://github.com/ROBOTIS-GIT/turtlebot3.git -b noetic-devel
+cd ~/catkin_ws && catkin_make
+```
+
+## Turtlebot3 simulator 
+
+```bash
+~/catkin_ws/src/
+git clone https://github.com/ROBOTIS-GIT/turtlebot3_simulations.git
+cd ~/catkin_ws && catkin_make
+```
+
 ## Turtlebot3 packages
 
 ```bash 
 sudo apt install ros-noetic-dynamixel-sdk
 sudo apt install ros-noetic-turtlebot3-msgs
 sudo apt install ros-noetic-turtlebot3 
+```
+
+##seting up bashrc 
+
+```bash
+cd
+gedit .bashrc
+
+ONCE BASHRC FILE OPENS PASTE THE FOLLOWING LINES IN A NEW LINE
+
+alias burger='export TURTLEBOT3_MODEL=burger'
+alias waffle='export TURTLEBOT3_MODEL=waffle'
+alias tb3fake='roslaunch turtlebot3_fake turtlebot3_fake.launch'
+alias tb3teleop='roslaunch turtlebot3_teleop turtlebot3_teleop_key.launch'
+alias tb3='roslaunch turtlebot3_gazebo turtlebot3_empty_world.launch'
+alias tb3maze='roslaunch turtlebot3_gazebo turtlebot3_world.launch'
+alias tb3house='roslaunch turtlebot3_fake turtlebot3_house.launch'
+alias tb3rviz='roslaunch turtlebot3_gazebo turtlebot3_gazebo_rviz.launch'
+
+PASTE THESE AT THE BOTTOM
+
+source /opt/ros/noetic/setup.bash
+source /home/*Your pc name*/catkin_ws/devel/setup.bash
+export TURTLEBOT_MODEL=waffle
+export SVGA_VGPU10=0
 ```
 
 
