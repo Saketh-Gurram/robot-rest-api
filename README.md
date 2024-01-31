@@ -28,7 +28,7 @@ sudo apt install ros-noetic-turtlebot3
 ## dependecies 
 
 ```bash
-udo apt-get install ros-kinetic-joy ros-kinetic-teleop-twist-joy \
+sudo apt-get install ros-kinetic-joy ros-kinetic-teleop-twist-joy \
   ros-kinetic-teleop-twist-keyboard ros-kinetic-laser-proc \
   ros-kinetic-rgbd-launch ros-kinetic-depthimage-to-laserscan \
   ros-kinetic-rosserial-arduino ros-kinetic-rosserial-python \
