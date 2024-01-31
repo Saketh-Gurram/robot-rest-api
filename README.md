@@ -122,3 +122,9 @@ python read.py
 
 ![image](https://github.com/Saketh-Gurram/robot-rest-api/assets/95581205/75340e0a-8c5f-41e3-8c56-b54928c5ca96)
 
+
+
+## Refrences 
+
+[SLAM](https://emanual.robotis.com/docs/en/platform/turtlebot3/slam/#slam)
+[Simulation](https://emanual.robotis.com/docs/en/platform/turtlebot3/nav_simulation/)
