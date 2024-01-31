@@ -49,6 +49,24 @@ roslaunch turtlebot3_teleop turtlebot3_teleop_key.launch
 
 Check if the bot is moving using the 'waxd s ' keys
 
+## Running rviz
+We need to run rviz to map the world generated in gazeboo 
+```bash
+export TURTLEBOT3_MODEL=burger
+roslaunch turtlebot3_slam turtlebot3_slam.launch slam_methods:=gmapping
+```
+![image](https://github.com/Saketh-Gurram/robot-rest-api/assets/95581205/34c7317f-b129-4cc2-8a92-70ba76482834)
+
+
+* after the world is mapped,save the map 
+* It will be saved in two files with extensions .yaml and .pgm
+
+## map 
+
+![image](https://github.com/Saketh-Gurram/robot-rest-api/assets/95581205/3ac192a4-8ea3-4b8a-9d0d-3fcad9db554c)
+
+* Once SLAM node is successfully up and running, TurtleBot3 will be exploring unknown area of the map using teleoperation. It is important to avoid vigorous movements such as changing the linear and angular speed too quickly. When building a map using the TurtleBot3, it is a good practice to scan every corner of the map.
+
 # Robot Navigation Instructions
 
 ## Estimating Initial Pose
@@ -71,23 +89,6 @@ Check if the bot is moving using the 'waxd s ' keys
    - Select the desired destination on the map.
    - Adjust the green arrow to indicate the direction the robot will face upon reaching the destination.
 
-## Running rviz
-We need to run rviz to map the world generated in gazeboo 
-```bash
-export TURTLEBOT3_MODEL=burger
-roslaunch turtlebot3_slam turtlebot3_slam.launch slam_methods:=gmapping
-```
-![image](https://github.com/Saketh-Gurram/robot-rest-api/assets/95581205/34c7317f-b129-4cc2-8a92-70ba76482834)
-
-
-* after the world is mapped,save the map 
-* It will be saved in two files with extensions .yaml and .pgm
-
-## map 
-
-![image](https://github.com/Saketh-Gurram/robot-rest-api/assets/95581205/3ac192a4-8ea3-4b8a-9d0d-3fcad9db554c)
-
-* Once SLAM node is successfully up and running, TurtleBot3 will be exploring unknown area of the map using teleoperation. It is important to avoid vigorous movements such as changing the linear and angular speed too quickly. When building a map using the TurtleBot3, it is a good practice to scan every corner of the map.
 
 # running Navigation
 
