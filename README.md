@@ -105,5 +105,17 @@ roslaunch robot-rest-api server.launch
 ```bash
 cd robot-rest-api
 cd src
-python client.py
+python read.py
 ```
+
+## Test cases 
+
+* case of accepting the Goal
+![image](https://github.com/Saketh-Gurram/robot-rest-api/assets/95581205/825e8c2c-f74c-4f23-a8f2-1745af1155b7)
+
+
+* case of reaching the Goal
+*  ![image](https://github.com/Saketh-Gurram/robot-rest-api/assets/95581205/0f1417b3-3156-4eec-a351-72e040ca2957)
+
+* Case of invalid message 
+![image](https://github.com/Saketh-Gurram/robot-rest-api/assets/95581205/2a2a033a-061f-4e08-a60b-35e99cfae7a2)
