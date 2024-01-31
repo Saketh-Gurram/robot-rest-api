@@ -111,11 +111,14 @@ python read.py
 ## Test cases 
 
 * case of accepting the Goal
+  
 ![image](https://github.com/Saketh-Gurram/robot-rest-api/assets/95581205/4800552a-83dc-41fe-b018-713d813724a4)
 
 * case of reaching the Goal
+  
 ![image](https://github.com/Saketh-Gurram/robot-rest-api/assets/95581205/0f1417b3-3156-4eec-a351-72e040ca2957)
 
-* Case of invalid message 
+* Case of invalid message
+
 ![image](https://github.com/Saketh-Gurram/robot-rest-api/assets/95581205/75340e0a-8c5f-41e3-8c56-b54928c5ca96)
 
