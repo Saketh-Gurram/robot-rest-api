@@ -10,11 +10,11 @@ robot_status_data = {}
 robot_status_data["data_received"] = False
 
 def move_base_status_callback(data):
-"""Callback function for ROS topic /move_base/status"""
-if data.status_list:
-robot_status_data["status"] = data.status_list[0].status
-robot_status_data["text"] = data.status_list[0].text
-robot_status_data["data_received"] = True
+  """Callback function for ROS topic /move_base/status"""
+  if data.status_list:
+    robot_status_data["status"] = data.status_list[0].status
+    robot_status_data["text"] = data.status_list[0].text
+    robot_status_data["data_received"] = True
 
 class RobotStatus(Resource):
 """Handler for /api/robot/status endpoint"""
