@@ -1,6 +1,7 @@
 # Description 
 
-This repo is used to read status from the  ROS Topic /move_base/status in turtlebot3 simulator and publish them using a REST API to the client 
+This project consists of two Python scripts - a REST server and a REST client - designed to monitor the status of a robot controlled by the Robot Operating System (ROS). The REST server exposes an endpoint to provide the current status of the robot, while the REST client continuously queries this endpoint to display the status in real-time.
+We are using flask API for a lightweight web framework 
 
 ## dependecies 
 
@@ -14,6 +15,7 @@ this link has the needed dependencies to be downloaded
 export TURTLEBOT3_MODEL=burger
 roslaunch turtlebot3_gazebo turtlebot3_world.launch
 ```
+![image](https://github.com/Saketh-Gurram/robot-rest-api/assets/95581205/aef51349-07ee-4084-8dbd-c2c77a468a20)
 
 ## Running the teleop(to control the bot)
 ```bash
