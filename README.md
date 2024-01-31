@@ -43,7 +43,7 @@ sudo apt install ros-noetic-turtlebot3-msgs
 sudo apt install ros-noetic-turtlebot3 
 ```
 
-##seting up bashrc 
+## seting up bashrc 
 
 ```bash
 cd
