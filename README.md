@@ -72,10 +72,33 @@ roslaunch turtlebot3_slam turtlebot3_slam.launch slam_methods:=gmapping
 run the same code for starting the gazeboo world 
 
 run the following code to open rviz with the map made.
+
 ```bash
 export TURTLEBOT3_MODEL=burger
 roslaunch turtlebot3_navigation turtlebot3_navigation.launch map_file:=$HOME/map.yaml
 ```
+# Robot Navigation Instructions
+
+## Estimating Initial Pose
+
+1. **Initiate Pose Estimation:**
+   - Click on the "2D Pose Estimate" button available in the RViz menu.
+   - On the displayed map, select the approximate location of the robot.
+   - Adjust the large green arrow to indicate the robot's orientation.
+
+2. **Refine Robot's Position:**
+   - Launch the keyboard teleoperation node to precisely position the robot.
+   - Use keyboard controls to move the robot and align it accurately on the map.
+   - Move the robot back and forth to gather surrounding environment data for better localization.
+   - To avoid conflicting commands, terminate the keyboard teleoperation node by entering Ctrl + C in the terminal.
+
+## Setting Navigation Goal
+
+1. **Define Navigation Goal:**
+   - Access the RViz menu and choose the "2D Nav Goal" option.
+   - Select the desired destination on the map.
+   - Adjust the green arrow to indicate the direction the robot will face upon reaching the destination.
+
 
 * Click on 2D Pose estimation and click and drag to match the positon and direction of the bot located in the gazeboo simulation
   ![image](https://github.com/Saketh-Gurram/robot-rest-api/assets/95581205/03cac60c-f19d-4cd9-9d0c-f06be1e3aa51)
