@@ -4,7 +4,8 @@ This project consists of two Python scripts - a REST server and a REST client - 
 We are using flask API for a lightweight web framework 
 
 ## Prerequisites
-* Linux distro
+
+* Ubuntu 20.04
 
 * ROS
 
